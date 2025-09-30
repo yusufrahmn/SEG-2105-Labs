@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 addNumber("-");
                 break;
             case R.id.btn_times:
-                addNumber("x");
+                addNumber("*");
                 break;
             case R.id.btn_div:
                 addNumber("/");
