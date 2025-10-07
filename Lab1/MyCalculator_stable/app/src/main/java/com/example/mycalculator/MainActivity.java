@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import java.math.BigDecimal;
 
+import org.mvel2.MVEL;
+
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -133,9 +135,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private String evaluate(String expression) throws Exception {
-        String result = evaluate(expression);
-        BigDecimal decimal = new BigDecimal(result);
-        return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
+        Object answer = MVEL.eval(expression);
+        return answer.toString();
+//        String result = evaluate(expression);
+//        BigDecimal decimal = new BigDecimal(result);
+//        return decimal.setScale(2, BigDecimal.ROUND_HALF_UP).toPlainString();
     }
 
     private void addNumber(String number) {
